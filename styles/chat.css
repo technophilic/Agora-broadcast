@@ -1,0 +1,118 @@
+#slide-out{
+    background-color: #EEEEEE;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-bottom: 0;
+}
+#messageWrap{
+    display: flex;
+}
+#inputWrap{
+    position: fixed;
+    bottom: 0;
+    z-index: 999;
+    width: 100%;
+    background-color: #EEEEEE;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+}
+#input{
+    display: flex;
+    justify-content: center;
+    margin-top: 0;
+    margin-bottom: 0px;
+}
+#send{
+    margin: 14px 5px;
+    width: 45px;
+    height: 40px;
+    background-color: #203c84;
+}
+.circle-wrap{
+    border: #203c84 2px solid;
+    border-radius: 22px;
+    padding: 0 15px;
+    width: calc(100% - 20px);
+    margin: 10px;
+    height: calc(100% - 20px);
+}
+#typeMsg{
+    margin: 0;
+    box-shadow: none !important;
+    border : none !important;
+}
+#scrollWrap{
+    overflow-y: scroll;
+    height: calc(100vh - 70px);
+    /*transform: translateY(-70px);*/
+}
+
+#scrollWrap::-webkit-scrollbar
+{
+    width: 4px;
+    background-color: transparent;
+}
+#scrollWrap::-webkit-scrollbar-thumb
+{
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.messageWrap{
+    position: relative;
+    display: block;
+    overflow:hidden;
+    width: 100%;
+}
+.message{
+    padding: 12px;
+    display: block;
+    position: relative;
+    background-color: #203c84;
+    margin: 15px;
+    border-radius: 5px;
+}
+.message.user{
+    float: right;
+}
+.message.bot{
+    float: left;
+}
+@media(max-width: 700px) {
+    .message{
+        max-width: 80%;
+    }
+}
+@media(min-width: 701px) {
+    html{
+        height: 70vh;
+        overflow: hidden;
+    }
+    .message{
+        max-width: 60%;
+    }
+}
+.message-text{
+    color: white;
+}
+.triangle{
+    width: 0;
+    height: 0;
+    border-style: solid;
+    position: absolute;
+    top: 5px;
+}
+.user .triangle{
+    border-width: 7.5px 0 7.5px 15px;
+    left: 100%;
+    border-color: transparent transparent transparent #203c84;
+}
+.bot .triangle{
+    right: 100%;
+    border-width: 7.5px 15px 7.5px 0;
+    border-color: transparent #203c84 transparent transparent;
+}
+.wrapper{
+    width: 100%;
+    display: block;
+}

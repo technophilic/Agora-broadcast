@@ -1,0 +1,14 @@
+input:focus{
+    border-bottom: 1px solid #203c84 !important;
+    -webkit-box-shadow: 0 1px 0 0 #203c84 !important;
+    box-shadow: 0 1px 0 0 #203c84 !important;
+}
+input:focus + label{
+    color: #203c84 !important;
+}
+.switch label input[type=checkbox]:checked+.lever:after{
+    background-color: #203c84 !important;
+}
+.switch label input[type=checkbox]:checked+.lever{
+    background-color: rgba(32, 60, 132, 0.53) !important;
+}

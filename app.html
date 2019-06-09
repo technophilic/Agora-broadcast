@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script>
+        if (localStorage.getItem('room')===null){
+            window.location='./index.html';
+        }
+    </script>
+    <link rel="stylesheet" href="./styles/materialize.min.css">
+    <link rel="stylesheet" href="./styles/chat.css">
+    <link rel="stylesheet" href="./styles/main.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
+    <title>Broadcasting Platform</title>
+</head>
+<body>
+    <div class="video-container">
+        <div id="video">
+
+        </div>
+
+        <div id="minimized-container">
+            <div id="me" class="minimized-video">
+
+            </div>
+            <div id="minimized-remote">
+
+            </div>
+        </div>
+    </div>
+
+    <ul id="slide-out" class="sidenav sidenav-fixed">
+        <div id="scrollWrap">
+        </div>
+        <div id="inputWrap">
+            <div id="input" class="input-field col s12" style="position: relative;">
+                <div class="circle-wrap">
+                    <input id="typeMsg" type="text" placeholder="Type something ..">
+                </div>
+                <a id="send" class="btn btn-floating"><i class="material-icons">send</i></a>
+            </div>
+        </div>
+    </ul>
+    <!--<a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>-->
+    <div class="controls">
+        <a id="mute-audio" class="btn btn-flat flex-item tooltipped" data-position="top" data-tooltip="Toggle mic"><i class="material-icons">mic</i></a>
+        <a id="mute-video" class="btn btn-flat flex-item tooltipped" data-position="top" data-tooltip="Toggle webcam"><i class="material-icons">videocam</i></a>
+        <a id="leave-call" class="btn btn-flat flex-item tooltipped" data-position="top" data-tooltip="Leave the channel"><i class="material-icons">call_end</i></a>
+        <a id="raise-hand" class="btn btn-flat flex-item tooltipped" data-position="top" data-tooltip="Raise a hand"><i class="material-icons">person_add</i></a>
+        <a id="de-escalate" class="btn btn-flat flex-item tooltipped" data-position="top" data-tooltip="Back to seat"><i class="material-icons">event_seat</i></a>
+        <a id="messages" data-position="top" data-tooltip="Toggle messages" data-target="slide-out" class="tooltipped sidenav-trigger btn btn-flat flex-item"><i class="material-icons">question_answer</i></a>
+    </div>
+    <div id="privileged-audience">
+        <ul class="collection">
+
+        </ul>
+    </div>
+    <script src="./scripts/AgoraRTCSDK-2.5.1.js"></script>
+    <script src="./scripts/jquery-3.3.1.min.js"></script>
+    <script src="./scripts/materialize.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase.js"></script>
+    <script>
+        let config = {
+            apiKey: "AIzaSyDqLBJzge28ohfsBrcZMOMAMt9qHljIq3Q",
+            authDomain: "agora-broadcasting.firebaseapp.com",
+            databaseURL: "https://agora-broadcasting.firebaseio.com",
+            projectId: "agora-broadcasting",
+            storageBucket: "agora-broadcasting.appspot.com",
+            messagingSenderId: "200632694199"
+        };
+        firebase.initializeApp(config);
+        let database = firebase.database();
+    </script>
+    <script src="./scripts/main.js"></script>
+</body>
+</html>
